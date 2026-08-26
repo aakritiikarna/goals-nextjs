@@ -1,230 +1,372 @@
 # ⚽ Goals Football Academy
 
-> **Where Kathmandus's next footballers are made.**
+> **Where Kathmandu's next footballers are made.**
 
-A modern, responsive football academy website built with **Next.js and TypeScript**, created to present Goals Football Academy's training programs, coaching team, facilities, success stories, and player development opportunities through a clean and professional digital experience.
+**Goals Football Academy** is a full-stack football academy management platform built to provide a modern digital experience for players, parents, coaches, and academy administrators.
 
----
-
-## ✨ Overview
-
-**Goals Football Academy** is a modern web experience designed for a football academy focused on structured player development and competitive football training.
-
-The website provides prospective players and parents with an organized way to explore the academy, understand its programs, meet the coaching team, discover available facilities, read success stories, and take the next step toward joining the academy.
-
-The project emphasizes:
-
-* Strong visual identity
-* Clear information architecture
-* Responsive design
-* Accessible navigation
-* Conversion-focused calls to action
-* Scalable Next.js architecture
+The platform combines a **Next.js frontend** with a **Django REST Framework backend**, connected to a database and supported by an administrative dashboard for managing academy operations, users, programs, and application data.
 
 ---
 
-## 🚀 Key Features
+## 🚀 Overview
 
-### 🏠 Home
+Goals Football Academy is designed to bridge the gap between a professional academy website and a functional academy management system.
 
-A visually engaging landing page that introduces the academy with:
+The public-facing website allows users to:
 
-* Strong hero messaging
-* Academy introduction
-* Primary call-to-action buttons
-* Football-focused visual design
-* Clear navigation to important sections
+* Explore the academy
+* Learn about training programs
+* View coaches
+* Explore facilities
+* Read player success stories
+* Submit enquiries
+* Apply to join the academy
 
-### ℹ️ About
+Behind the frontend, the Django-powered backend provides APIs, authentication, database management, and administrative functionality through a dedicated dashboard.
 
-Provides information about the academy, its philosophy, and its approach toward football development.
-
-### 🏃 Programs
-
-Showcases the academy's training and development pathways, helping players understand the available opportunities.
-
-### 👨‍🏫 Coaches
-
-Dedicated section highlighting the coaching team and their role in player development.
-
-### 🏟️ Facilities
-
-Presents the academy's training environment and facilities.
-
-### 🏆 Success Stories
-
-Highlights player development and achievements to demonstrate the academy's impact and pathway.
-
-### 📩 Contact
-
-Provides visitors with a dedicated section for getting in touch with the academy.
-
-### ⚽ Join Now
-
-A dedicated conversion-focused page for visitors interested in joining the academy.
+The project is structured to be scalable from a marketing website into a complete academy management platform.
 
 ---
 
-## 🛠️ Tech Stack
+## 🏗️ Architecture
 
-| Technology       | Purpose                                      |
-| ---------------- | -------------------------------------------- |
-| **Next.js**      | React framework and application architecture |
-| **React**        | Component-based UI development               |
-| **TypeScript**   | Type-safe development                        |
-| **CSS**          | Styling and responsive layouts               |
-| **Node.js**      | JavaScript runtime                           |
-| **npm**          | Package management                           |
-| **Git & GitHub** | Version control and source management        |
+```text
+                    ┌──────────────────────┐
+                    │      User / Admin    │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Next.js Frontend   │
+                    │   React + TypeScript  │
+                    └──────────┬───────────┘
+                               │
+                         REST API
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Django Backend     │
+                    │ Django REST Framework│
+                    └──────────┬───────────┘
+                               │
+             ┌─────────────────┼─────────────────┐
+             │                 │                 │
+             ▼                 ▼                 ▼
+       ┌───────────┐    ┌──────────────┐   ┌─────────────┐
+       │ Database  │    │ Authentication│   │ Admin       │
+       │           │    │ & Authorization│   │ Dashboard   │
+       └───────────┘    └──────────────┘   └─────────────┘
+```
 
 ---
 
-## 📁 Project Structure
+# ✨ Key Features
+
+## 🌐 Public Website
+
+The Next.js frontend provides a modern, responsive academy website with dedicated sections for:
+
+* Home
+* About
+* Programs
+* Coaches
+* Facilities
+* Success Stories
+* Contact
+* Join Now
+
+The interface focuses on strong visual hierarchy, responsive layouts, clear navigation, and conversion-focused calls to action.
+
+---
+
+## 👤 User Management
+
+The backend provides user-related functionality through Django and Django REST Framework.
+
+Potential platform capabilities include:
+
+* User registration
+* Authentication
+* Login/logout
+* Role-based access
+* User profile management
+* Secure API access
+
+---
+
+## 📋 Academy Programs
+
+Academy programs can be managed through the backend and presented dynamically through the frontend.
+
+Programs can contain information such as:
+
+* Program name
+* Age group
+* Training level
+* Description
+* Schedule
+* Availability
+* Program status
+
+---
+
+## 👨‍🏫 Coach Management
+
+The platform includes a dedicated coaches section for presenting academy coaching staff.
+
+Coach information can be managed through the backend and displayed through the frontend.
+
+---
+
+## 🏟️ Facilities
+
+The facilities section allows the academy to showcase its training environment and infrastructure.
+
+---
+
+## 🏆 Success Stories
+
+The platform provides a dedicated area for showcasing player achievements and academy success stories.
+
+---
+
+## 📝 Join Now / Applications
+
+The **Join Now** functionality provides a pathway for prospective players to express their interest in joining the academy.
+
+Application-related information can be processed and managed through the backend.
+
+---
+
+# 📊 Admin Dashboard
+
+A dedicated dashboard is included for academy administration and management.
+
+The dashboard provides a centralized interface for managing application data and academy operations.
+
+Depending on the configured permissions, administrators can manage:
+
+* Users
+* Players
+* Applications
+* Programs
+* Coaches
+* Facilities
+* Success stories
+* Academy content
+* Administrative data
+
+This separates the public-facing experience from internal academy management.
+
+---
+
+# 🔌 Backend API
+
+The backend is built using:
+
+* **Python**
+* **Django**
+* **Django REST Framework**
+
+The REST API acts as the communication layer between the Next.js frontend and the database.
+
+```text
+Next.js
+   │
+   │ HTTP / REST API
+   ▼
+Django REST Framework
+   │
+   ▼
+Business Logic
+   │
+   ▼
+Database
+```
+
+This architecture keeps the frontend and backend independently maintainable and allows the API to support future mobile applications or other clients.
+
+---
+
+# 🗄️ Database
+
+The application uses a relational database connected to the Django backend.
+
+Database-backed functionality allows the platform to persist:
+
+* User information
+* Academy applications
+* Programs
+* Coaches
+* Facilities
+* Success stories
+* Other application data
+
+Django ORM is used to interact with the database.
+
+---
+
+# 🔐 Authentication & Security
+
+The backend is designed around Django's authentication and API security capabilities.
+
+Security-related functionality includes:
+
+* Authentication
+* Authorization
+* Protected API endpoints
+* Role-based access where applicable
+* Environment-based secret configuration
+* Secure credential handling
+
+Sensitive configuration should be stored using environment variables rather than committed to the repository.
+
+---
+
+# 💳 External Services & Integrations
+
+The backend is structured to support external services and integrations where required, including:
+
+* Payment processing
+* Cloud-based media storage
+* Object storage
+* Email/API integrations
+
+API credentials and service configuration should be stored in environment variables.
+
+---
+
+# 🛠️ Technology Stack
+
+## Frontend
+
+| Technology     | Purpose                          |
+| -------------- | -------------------------------- |
+| **Next.js**    | Frontend framework               |
+| **React**      | UI development                   |
+| **TypeScript** | Type-safe JavaScript development |
+| **CSS**        | Styling and responsive design    |
+
+## Backend
+
+| Technology                | Purpose                      |
+| ------------------------- | ---------------------------- |
+| **Python**                | Backend programming language |
+| **Django**                | Backend framework            |
+| **Django REST Framework** | REST API development         |
+| **Django ORM**            | Database interaction         |
+
+## Infrastructure & Services
+
+| Technology                           | Purpose                                       |
+| ------------------------------------ | --------------------------------------------- |
+| **PostgreSQL / Relational Database** | Persistent data storage                       |
+| **Git**                              | Version control                               |
+| **GitHub**                           | Source code management                        |
+| **Cloud Storage**                    | Media/file storage where configured           |
+| **Payment APIs**                     | Online payment functionality where configured |
+
+---
+
+# 📁 Project Structure
 
 ```text
 goals-nextjs/
 │
-├── app/
-│   ├── about/
-│   ├── coaches/
-│   ├── contact/
-│   ├── facilities/
-│   ├── join-now/
-│   ├── programs/
-│   ├── success-stories/
+├── frontend/
 │   │
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
+│   ├── app/
+│   │   ├── about/
+│   │   ├── coaches/
+│   │   ├── contact/
+│   │   ├── facilities/
+│   │   ├── join-now/
+│   │   ├── programs/
+│   │   ├── success-stories/
+│   │   │
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   │
+│   ├── components/
+│   ├── lib/
+│   ├── public/
+│   ├── package.json
+│   └── next.config.mjs
 │
-├── components/
-│   └── Reusable UI components
+├── backend/
+│   │
+│   ├── apps/
+│   │   ├── accounts/
+│   │   ├── admin_panel/
+│   │   ├── downloads/
+│   │   ├── licensing/
+│   │   ├── orders/
+│   │   └── themes/
+│   │
+│   ├── config/
+│   ├── private_media/
+│   ├── manage.py
+│   ├── requirements.txt
+│   └── .env.example
 │
-├── lib/
-│   └── Application utilities and supporting logic
-│
-├── public/
-│   └── Static assets and media
-│
-├── .env.example
-├── .gitignore
-├── next.config.mjs
-├── next-env.d.ts
-├── package.json
-├── package-lock.json
 └── README.md
 ```
 
-The application follows the **Next.js App Router architecture**, with individual routes organized inside the `app` directory.
+> The exact directory names may vary depending on the current implementation.
 
 ---
 
-## 🎨 Design & User Experience
+# ⚙️ Getting Started
 
-The website follows a modern sports-oriented visual language built around:
+## Prerequisites
 
-* Bold display typography
-* Deep green brand tones
-* Warm accent colors
-* High-impact football imagery
-* Generous whitespace
-* Clear visual hierarchy
-* Strong call-to-action elements
-* Minimal and intuitive navigation
+Install the following:
 
-The interface is designed to communicate the academy's core values of **discipline, development, performance, and ambition**.
+* Node.js
+* npm
+* Python 3.14+
+* Git
+* Database server required by the project
 
----
-
-## 📱 Responsive Experience
-
-The website is designed to provide a consistent experience across different screen sizes:
-
-* Desktop
-* Laptop
-* Tablet
-* Mobile
-
-Responsive layouts ensure that navigation, typography, imagery, content sections, and interactive elements remain usable across devices.
-
----
-
-## 🧩 Application Routes
-
-| Route              | Purpose                        |
-| ------------------ | ------------------------------ |
-| `/`                | Academy homepage               |
-| `/about`           | About the academy              |
-| `/programs`        | Training programs              |
-| `/coaches`         | Coaching team                  |
-| `/facilities`      | Academy facilities             |
-| `/success-stories` | Player success stories         |
-| `/contact`         | Contact information            |
-| `/join-now`        | Academy registration / joining |
-
----
-
-## ⚙️ Getting Started
-
-### Prerequisites
-
-Make sure the following are installed on your system:
-
-* **Node.js**
-* **npm**
-* **Git**
-
-Verify your installation:
+Verify:
 
 ```bash
 node --version
 npm --version
+python --version
 git --version
 ```
 
-### 1. Clone the repository
+---
 
-```bash
-git clone https://github.com/aakritiikarna/goals-nextjs.git
-```
+# 🖥️ Frontend Setup
 
-### 2. Navigate to the project
+Navigate to the frontend project:
 
 ```bash
 cd goals-nextjs
 ```
 
-### 3. Install dependencies
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-### 4. Configure environment variables
+Create the required environment file if applicable:
 
-If the project requires environment variables, create a local environment file based on the provided example:
-
-```bash
-cp .env.example .env.local
+```text
+.env.local
 ```
 
-On Windows PowerShell:
-
-```powershell
-Copy-Item .env.example .env.local
-```
-
-Add the required values to `.env.local`.
-
-> **Never commit `.env.local` or other files containing private credentials or API keys.**
-
-### 5. Start the development server
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Open:
+The frontend will be available at:
 
 ```text
 http://localhost:3000
@@ -232,105 +374,273 @@ http://localhost:3000
 
 ---
 
-## 📜 Available Scripts
+# 🐍 Backend Setup
 
-| Command         | Description                           |
-| --------------- | ------------------------------------- |
-| `npm run dev`   | Starts the development server         |
-| `npm run build` | Creates an optimized production build |
-| `npm run start` | Starts the production server          |
-| `npm run lint`  | Runs the project's linting checks     |
+Navigate to the backend:
 
----
+```bash
+cd backend
+```
 
-## 🔐 Environment Variables
+Create a virtual environment:
 
-Environment-specific configuration should be stored in `.env.local`.
+```bash
+python -m venv venv
+```
 
-A template is provided through:
+Activate it on Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Install backend dependencies:
+
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+Configure the required environment variables using:
 
 ```text
 .env.example
 ```
 
-Environment files containing secrets should remain local and must not be committed to GitHub.
+Create your local `.env` configuration and provide the required database and service credentials.
+
+Run database migrations:
+
+```bash
+python manage.py migrate
+```
+
+Check the Django project:
+
+```bash
+python manage.py check
+```
+
+Start the backend:
+
+```bash
+python manage.py runserver
+```
+
+The Django API will normally be available at:
+
+```text
+http://127.0.0.1:8000
+```
 
 ---
 
-## 🌐 Deployment
+# 🔄 Running the Full Application
 
-This Next.js application can be deployed to modern JavaScript hosting platforms that support Next.js.
+Run the backend and frontend in separate terminals.
 
-A typical production workflow is:
+### Terminal 1 — Django
 
 ```bash
-npm install
+cd backend
+venv\Scripts\activate
+python manage.py runserver
+```
+
+### Terminal 2 — Next.js
+
+```bash
+npm run dev
+```
+
+Application:
+
+```text
+Frontend → http://localhost:3000
+Backend  → http://127.0.0.1:8000
+```
+
+The Next.js application communicates with the Django backend through REST API endpoints.
+
+---
+
+# 📜 Available Frontend Scripts
+
+```bash
+npm run dev
+```
+
+Starts the Next.js development server.
+
+```bash
 npm run build
+```
+
+Creates the production build.
+
+```bash
 npm run start
 ```
 
-Before deployment, ensure that all required environment variables are configured in the hosting environment.
+Starts the production server.
+
+```bash
+npm run lint
+```
+
+Runs linting checks.
 
 ---
 
-## 🔮 Future Enhancements
+# 📜 Available Backend Commands
 
-The project can be extended into a complete academy management platform with features such as:
+```bash
+python manage.py check
+```
 
-* Online player registration
-* Player and parent accounts
-* Training schedule management
-* Online fee/payment integration
-* Player performance tracking
-* Coach dashboard
-* Admin dashboard
-* Dynamic program management
-* Trial booking system
-* Contact form integration
+Checks the Django project for configuration issues.
+
+```bash
+python manage.py migrate
+```
+
+Applies database migrations.
+
+```bash
+python manage.py makemigrations
+```
+
+Creates migrations after model changes.
+
+```bash
+python manage.py runserver
+```
+
+Starts the Django development server.
+
+---
+
+# 📱 Responsive Design
+
+The frontend is designed to provide a consistent experience across:
+
+* Desktop
+* Laptop
+* Tablet
+* Mobile
+
+The interface adapts navigation, typography, imagery, content sections, and interactive components according to screen size.
+
+---
+
+# 🎨 Design System
+
+The website uses a modern football-oriented visual identity featuring:
+
+* Bold typography
+* Deep green tones
+* Warm accent colors
+* High-quality football imagery
+* Strong visual hierarchy
+* Generous spacing
+* Minimal navigation
+* Prominent calls to action
+
+The design aims to communicate:
+
+**Performance · Discipline · Development · Ambition**
+
+---
+
+# 🔮 Future Development
+
+The platform can be further expanded with:
+
+* Player dashboards
+* Parent dashboards
+* Coach dashboards
+* Training attendance
+* Player performance analytics
+* Match management
+* Training schedules
+* Online fee payments
+* Subscription management
 * Automated email notifications
-* CMS-powered content management
-* Backend/API integration
+* Push notifications
+* Advanced role-based permissions
+* Mobile application
+* Advanced analytics
+* Content management system
+* Deployment automation
 
 ---
 
-## 🎯 Project Goals
+# 🎯 Project Objectives
 
-The primary objectives of this project are to:
+The project was developed with the following goals:
 
-1. Establish a professional digital presence for a football academy.
-2. Provide clear information about programs and development pathways.
-3. Create an engaging experience for prospective players and parents.
-4. Maintain a scalable and maintainable Next.js architecture.
-5. Provide a foundation that can evolve into a full academy management platform.
-
----
-
-## 📸 Preview
-
-### Homepage
-
-The homepage features a bold hero section, academy branding, football imagery, and clear conversion-focused actions such as **Book a Free Trial** and **See Our Pathway**.
+1. Build a professional digital presence for a football academy.
+2. Create a modern and responsive user experience.
+3. Connect a Next.js frontend to a Django REST backend.
+4. Implement persistent database-driven functionality.
+5. Provide an administrative dashboard for academy management.
+6. Establish a scalable architecture for future features.
+7. Separate frontend presentation from backend business logic and data management.
 
 ---
 
-## 👩‍💻 Author
+# 🌐 Deployment Architecture
+
+A production deployment can be structured as:
+
+```text
+                    Internet
+                       │
+                       ▼
+              ┌─────────────────┐
+              │    Next.js      │
+              │    Frontend     │
+              └────────┬────────┘
+                       │
+                    REST API
+                       │
+                       ▼
+              ┌─────────────────┐
+              │     Django      │
+              │      API        │
+              └────────┬────────┘
+                       │
+                       ▼
+              ┌─────────────────┐
+              │    Database     │
+              └─────────────────┘
+```
+
+This architecture allows the frontend, backend, and database layers to be deployed and scaled independently.
+
+---
+
+# 👩‍💻 Author
 
 **Aakriti Karna**
 
-GitHub: [@aakritiikarna](https://github.com/aakritiikarna)
+GitHub:
+https://github.com/aakritiikarna
 
-Project Repository: [goals-nextjs](https://github.com/aakritiikarna/goals-nextjs)
+Repository:
+https://github.com/aakritiikarna/goals-nextjs
 
 ---
 
-## 📄 License
+# 📄 License
 
 This project is developed for **educational, portfolio, and demonstration purposes**.
 
-For commercial use, redistribution, or production deployment, appropriate licensing and content permissions should be established.
+All project-specific branding, imagery, and content should be used in accordance with their respective ownership and licensing terms.
 
 ---
 
 <p align="center">
-  Built with ⚽, Next.js & TypeScript
+  <strong>Goals Football Academy</strong><br/>
+  Built with Next.js · Django · REST API · Database
 </p>
