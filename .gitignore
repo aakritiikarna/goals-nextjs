@@ -1,0 +1,13 @@
+# Environment variables — NEVER commit
+.env.local
+.env.production
+
+# Next.js
+.next/
+out/
+node_modules/
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
